@@ -3,22 +3,22 @@ services:
   -docker
 
 before_install:
-  - docker build -t shihyu/react-test -f ./client/Dockerfile.dev ./client
+  - docker build -t dockershih0512/react-test -f ./client/Dockerfile.dev ./client
 
 script:
-  - docker run -e CI=true shihyu/react-test npm test
+  - docker run -e CI=true dockershih0512/react-test npm test
 
 after_success:
-  - docker build -t shihyu/multi-client ./client
-  - docker build -t shihyu/multi-nginx ./nginx
-  - docker build -t shihyu/multi-server ./server
-  - docker build -t shihyu/multi-worker ./worker
+  - docker build -t dockershih0512/multi-client ./client
+  - docker build -t dockershih0512/multi-nginx ./nginx
+  - docker build -t dockershih0512/multi-server ./server
+  - docker build -t dockershih0512/multi-worker ./worker
   # Log in to the docker CLI 
   - echo "$DOCKER_PASSWORD" | docker login -u "$DOCKER_ID" --password-stdin
   # Take those images and push them to docker hub
-  - docker push shihyu/multi-client
-  - docker push shihyu/multi-nginx
-  - docker push shihyu/multi-server
-  - docker push shihyu/multi-worker
+  - docker push dockershih0512/multi-client
+  - docker push dockershih0512/multi-nginx
+  - docker push dockershih0512/multi-server
+  - docker push dockershih0512/multi-worker
 
 
