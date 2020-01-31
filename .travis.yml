@@ -20,5 +20,6 @@ after_success:
   - docker push dockershih0512/multi-nginx
   - docker push dockershih0512/multi-server
   - docker push dockershih0512/multi-worker
+  
 
 
